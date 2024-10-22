@@ -1,9 +1,10 @@
 // Contract based on https://docs.openzeppelin.com/contracts/4.x/erc721
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "hardhat/console.sol";
 
 contract MyNFT is ERC721URIStorage {
     using Counters for Counters.Counter;
@@ -20,7 +21,7 @@ contract MyNFT is ERC721URIStorage {
         uint256 newItemId = _tokenIds.current();
         _mint(recipient, newItemId);
         _setTokenURI(newItemId, tokenURI);
-
+      //  console.log(newItemId);
         return newItemId;
     }
 }
